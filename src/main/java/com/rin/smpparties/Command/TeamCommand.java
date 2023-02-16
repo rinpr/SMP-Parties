@@ -18,10 +18,9 @@ import static com.rin.smpparties.SMPParties.plugin;
 
 public class TeamCommand implements CommandExecutor {
     private final SQLite Sqlite = new SQLite(plugin);
-    SMPTeam smpTeam = new SMPTeam();
-
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, String[] args) {
+        SMPTeam smpTeam = new SMPTeam();
         // Check if commandSender is not console
         if (!(commandSender instanceof Player)) {
             commandSender.sendMessage("This command can only be used by players.");

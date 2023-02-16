@@ -21,7 +21,6 @@ public final class SMPParties extends JavaPlugin {
         // Plugin startup logic
         Sqlite.loadSQLite();
         registerCommand();
-        loadConfig();
     }
     private void registerCommand() {
         Objects.requireNonNull(this.getCommand("team")).setExecutor(new TeamCommand());
