@@ -1,0 +1,9 @@
+name: SMP-Parties
+version: '${project.version}'
+main: com.rin.smpparties.SMPParties
+api-version: 1.19
+authors: [ Rin_Pr ]
+description: Plugin for chasingclub server
+commands:
+  team:
+    description: Many things
