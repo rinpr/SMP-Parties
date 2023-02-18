@@ -17,13 +17,18 @@ import java.util.UUID;
 import static com.rin.smpparties.SMPParties.plugin;
 
 public class TeamCommand implements CommandExecutor {
-    private final SQLite Sqlite = new SQLite(plugin);
+
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, String[] args) {
+        SQLite Sqlite = new SQLite(plugin);
         SMPTeam smpTeam = new SMPTeam();
         // Check if commandSender is not console
         if (!(commandSender instanceof Player)) {
             commandSender.sendMessage("This command can only be used by players.");
+            Bukkit.getLogger().info("smpTeam Mapping:");
+            Bukkit.getLogger().info(smpTeam.getPlayerTeams().toString());
+            Bukkit.getLogger().info("Sqlite Mapping:");
+            Bukkit.getLogger().info(Sqlite.getPlayerTeams().toString());
             return false;
         }
         // Check if player input the command argument or not
