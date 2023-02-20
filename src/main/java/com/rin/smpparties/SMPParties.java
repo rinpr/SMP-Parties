@@ -1,6 +1,7 @@
 package com.rin.smpparties;
 
 import com.rin.smpparties.Command.TeamCommand;
+import com.rin.smpparties.Events.PlayerEvents;
 import com.rin.smpparties.SQliteManager.SQLite;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -24,6 +25,9 @@ public final class SMPParties extends JavaPlugin {
     }
     private void registerCommand() {
         Objects.requireNonNull(this.getCommand("team")).setExecutor(new TeamCommand());
+    }
+    private void registerEvents() {
+        getServer().getPluginManager().registerEvents(new PlayerEvents(), this);
     }
     private void loadConfig() {
         getConfig().options().copyDefaults();
