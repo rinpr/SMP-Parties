@@ -6,13 +6,11 @@ import com.rin.smpparties.SQliteManager.SQLite;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.sql.Connection;
 import java.util.Objects;
 
 public final class SMPParties extends JavaPlugin {
 
     private final SQLite Sqlite = new SQLite(this);
-    private Connection connection;
     public static SMPParties plugin;
     public SMPParties() {
         plugin = this;
@@ -22,6 +20,7 @@ public final class SMPParties extends JavaPlugin {
         // Plugin startup logic
         Sqlite.loadSQLite();
         registerCommand();
+        registerEvents();
     }
     private void registerCommand() {
         Objects.requireNonNull(this.getCommand("team")).setExecutor(new TeamCommand());

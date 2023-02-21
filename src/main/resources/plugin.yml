@@ -7,3 +7,5 @@ description: Plugin for chasingclub server
 commands:
   team:
     description: Many things
+  pvp:
+    description: Turn on pvp on or off

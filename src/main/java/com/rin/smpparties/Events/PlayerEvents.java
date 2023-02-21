@@ -12,8 +12,10 @@ public class PlayerEvents implements Listener {
         if (event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
             Player attacker = (Player) event.getDamager();
             Player victim = (Player) event.getEntity();
-            Bukkit.getLogger().info("Player is attacking other player");
-
+            if (true) {
+                Bukkit.getLogger().info("Player is attacking other player");
+                event.setCancelled(true);
+            }
         }
     }
 }
