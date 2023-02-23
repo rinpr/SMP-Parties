@@ -1,6 +1,6 @@
 package com.rin.smpparties;
 
-import com.rin.smpparties.SQliteManager.SQLite;
+import com.rin.smpparties.Storage.SQLite;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;

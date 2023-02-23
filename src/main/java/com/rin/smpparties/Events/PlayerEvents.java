@@ -1,6 +1,6 @@
 package com.rin.smpparties.Events;
 
-import org.bukkit.Bukkit;
+import com.rin.smpparties.Storage.YamlStorage;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -10,10 +10,9 @@ public class PlayerEvents implements Listener {
     @EventHandler
     public void onPlayerAttack(EntityDamageByEntityEvent event) {
         if (event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
-            Player attacker = (Player) event.getDamager();
-            Player victim = (Player) event.getEntity();
-            if (true) {
-                Bukkit.getLogger().info("Player is attacking other player");
+            YamlStorage victim = new YamlStorage((Player) event.getEntity());
+            YamlStorage attacker = new YamlStorage((Player) event.getDamager());
+            if (!victim.pvpEnabled() || !attacker.pvpEnabled()) {
                 event.setCancelled(true);
             }
         }

@@ -1,7 +1,7 @@
 package com.rin.smpparties.Command;
 
 import com.rin.smpparties.SMPTeam;
-import com.rin.smpparties.SQliteManager.SQLite;
+import com.rin.smpparties.Storage.SQLite;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

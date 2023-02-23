@@ -1,4 +1,4 @@
-package com.rin.smpparties.SQliteManager;
+package com.rin.smpparties.Storage;
 
 import com.rin.smpparties.SMPParties;
 import org.bukkit.Bukkit;
