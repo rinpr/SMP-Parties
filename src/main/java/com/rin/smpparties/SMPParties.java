@@ -33,7 +33,6 @@ public final class SMPParties extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerEvents(), this);
     }
     private void loadConfig() {
-
         getConfig().options().copyDefaults();
         saveDefaultConfig();
     }

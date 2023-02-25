@@ -1,7 +1,7 @@
 package com.rin.smpparties.Command;
 
 import com.rin.smpparties.Storage.YamlStorage;
-import org.bukkit.ChatColor;
+import com.rin.smpparties.Utilities.Prefix;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,7 +12,7 @@ public class pvpCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage(ChatColor.RED + "This command can only be used by players.");
+            sender.sendMessage(Prefix.SERVER + "Successfully reloaded player's data");
             YamlStorage.reloadConfig();
             return false;
         }
