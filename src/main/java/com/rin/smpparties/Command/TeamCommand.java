@@ -4,6 +4,8 @@ import com.rin.smpparties.SMPTeam;
 import com.rin.smpparties.Storage.SQLite;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -11,8 +13,7 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.sql.SQLException;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 import static com.rin.smpparties.SMPParties.plugin;
 
@@ -170,6 +171,33 @@ public class TeamCommand implements CommandExecutor {
                     return true;
                 }
                 player.sendMessage(smpTeam.getMember(teamName).toString());
+                break;
+            case "home":
+                // Check if player is in team or not if not the code will stop here.
+                if (!smpTeam.inTeam(player)) {
+                    player.sendMessage(ChatColor.RED + "You are not in a team.");
+                    return false;
+                }
+                // Check team's home location , if it not exists the code perish!
+                if (!Sqlite.hasSetHome(smpTeam.getTeam(player))) {
+                    player.sendMessage(ChatColor.RED + "You didn't set team's home yet!");
+                    return false;
+                }
+                Location location = Sqlite.getHome(smpTeam.getTeam(player));
+                player.teleport(location);
+                break;
+            case "sethome":
+                // Check if player is in team or not if not the code will stop here.
+                if (!smpTeam.inTeam(player)) {
+                    player.sendMessage(ChatColor.RED + "You are not in a team.");
+                    return false;
+                }
+                Sqlite.setHome(player.getLocation(), smpTeam.getTeam(player));
+                break;
+            case "location":
+                Location locations = player.getLocation();
+                World world = locations.getWorld();
+                player.sendMessage(String.valueOf(world));
                 break;
 
             default:
