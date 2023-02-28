@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class TabCompletion implements TabCompleter {
-    private static final String[] COMMANDS = { "create", "join", "add", "leave", "message", "list", "home", "sethome", "location" };
+    private static final String[] COMMANDS = { "create", "join", "add", "leave", "message", "list", "home", "sethome", "location", "tpa", "tpaccept" };
     @Nullable
     @Override
     public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {

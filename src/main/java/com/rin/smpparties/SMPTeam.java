@@ -64,6 +64,9 @@ public class SMPTeam {
             }
         }
     }
+    public boolean sameTeam(Player player1, Player player2) {
+        return getTeam(player1).equals(getTeam(player2));
+    }
     // Get player's team from UUID or player's name.
     public String getTeam(UUID playerUUID) {
         return playerTeams.get(playerUUID);
